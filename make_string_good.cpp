@@ -19,8 +19,7 @@ public:
     }
 };
 int main(){
-  Solution s;
-  cout << s.makeGood("bBbBbBbbabyGgGgGoats") << endl;
-  cout << "hello world" <<endl;
-  return 1;
+    Solution s;
+    cout << s.makeGood("bBbBbBBbabyGgGgGoats") << endl;
+    return 0;
 };
