@@ -16,7 +16,7 @@ class LinkedList {
   LinkedList(){
     head = NULL;
   }
-  ~LinkedList(){};
+  ~LinkedList(){cout << "Deleting LinkedList" << endl;};
   void insert(int value){
     Node* new_node = new Node();
     new_node->value = value;
@@ -33,6 +33,18 @@ class LinkedList {
       current = current->next;
     }
   }
+  void reverse(){
+    Node* curr = head;
+    Node* prev = NULL;
+    Node* next = NULL;
+    while (curr){
+      next = curr->next;
+      curr->next = prev;
+      prev = curr;
+      curr = next;
+    }
+    head = prev;
+  }
 };
 
 struct Element {
@@ -47,11 +59,14 @@ struct Element {
 
 int main(){
 
-  LinkedList ll;
-  ll.insert(55);
-  ll.insert(66);
-  ll.insert(77);
-  ll.display();
+  LinkedList* ll = new LinkedList();
+  ll->insert(55);
+  ll->insert(66);
+  ll->insert(77);
+  ll->display();
+  ll->reverse();
+  ll->display();
+  delete ll;
 
   Element trooper1, trooper2, trooper3;
   trooper1.prefix[0] = 'T';
