@@ -6,6 +6,7 @@ class Node {
   public:
   int value;
   Node* next;
+  ~Node(){cout<<"deleting node: "<<value<<endl;}
 };
 
 class LinkedList {
@@ -23,8 +24,7 @@ class LinkedList {
     while (curr){
       prev = curr;
       curr = curr->next;
-      cout << "freeing memory for: " << prev->value << endl;
-      free(prev);
+      delete prev;
     }
   };
   void insert(int value){
