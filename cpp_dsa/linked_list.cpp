@@ -16,7 +16,17 @@ class LinkedList {
   LinkedList(){
     head = NULL;
   }
-  ~LinkedList(){cout << "Deleting LinkedList" << endl;};
+  ~LinkedList(){
+    Node* curr = head;
+    Node* next = NULL;
+    Node* prev = NULL;
+    while (curr){
+      prev = curr;
+      curr = curr->next;
+      cout << "freeing memory for: " << prev->value << endl;
+      free(prev);
+    }
+  };
   void insert(int value){
     Node* new_node = new Node();
     new_node->value = value;
